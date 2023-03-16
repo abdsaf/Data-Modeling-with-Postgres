@@ -7,21 +7,29 @@ def create_database():
     - Creates and connects to the sparkifydb
     - Returns the connection and cursor to sparkifydb
     """
-    
+    #"host=127.0.0.1 dbname=studentdb user=student password=student"
+    Initconnectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=postgres user=abdsaf password=fasdba123@ sslmode=require"
+    connectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=sparkifydb user=abdsaf password=fasdba123@ sslmode=require"
     # connect to default database
-    conn = psycopg2.connect("host=127.0.0.1 dbname=studentdb user=student password=student")
+    conn = psycopg2.connect(Initconnectionstring)
     conn.set_session(autocommit=True)
     cur = conn.cursor()
     
     # create sparkify database with UTF8 encoding
-    cur.execute("DROP DATABASE IF EXISTS sparkifydb")
-    cur.execute("CREATE DATABASE sparkifydb WITH ENCODING 'utf8' TEMPLATE template0")
-
+    try:
+        cur.execute("DROP DATABASE IF EXISTS sparkifydb")
+    except psycopg2.Error as e:
+        print(e) 
+    
+    try:
+        cur.execute("CREATE DATABASE sparkifydb WITH ENCODING 'utf8' TEMPLATE template0")
+    except psycopg2.Error as e:
+        print(e) 
     # close connection to default database
     conn.close()    
     
     # connect to sparkify database
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
+    conn = psycopg2.connect(connectionstring)
     cur = conn.cursor()
     
     return cur, conn
@@ -45,6 +53,7 @@ def create_tables(cur, conn):
         conn.commit()
 
 
+
 def main():
     """
     - Drops (if exists) and Creates the sparkify database. 
@@ -59,7 +68,8 @@ def main():
     - Finally, closes the connection. 
     """
     cur, conn = create_database()
-    
+       
+     
     drop_tables(cur, conn)
     create_tables(cur, conn)
 
