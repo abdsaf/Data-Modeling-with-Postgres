@@ -37,9 +37,8 @@ log_data/2018/11/2018-11-13-events.json
 ## Schema for Song Play Analysis
 Using the song and log datasets, you'll need to create a star schema optimized for queries on song play analysis. This includes the following tables.
 
-### ERM Model
-![alt erm](screenschoots/SongERD.PNG)
-
+### ERD Model
+![ERD](screenshoots/SongERD.png "ERD")
 
 ### Fact Table
 #### songplays
@@ -84,17 +83,33 @@ Using the song and log datasets, you'll need to create a star schema optimized f
 - `year`
 - `weekday`
 
-## Project Structure
-The project includes six files:
-- **sql_queries.py**: contains all your sql queries, and is imported into the last three files above.
-- **create_tables.py**: drops and creates your tables. You run this file to reset your tables before each time you run your ETL scripts.
-- **etl.ipynb**: reads and processes a single file from song_data and log_data and loads the data into your tables. This notebook contains detailed instructions on the ETL process for each of the tables.
-- **etl.py**: reads and processes files from song_data and log_data and loads them into your tables. You can fill this out based on your work in the ETL notebook.
-- **test.ipynb**:  displays the first few rows of each table to let you check your database.
+## Project Template
+To get started with the project, go to the workspace on the next page, where you'll find the project template files. You can work on your project and submit your work through this workspace. Alternatively, you can download the project template files from the Resources folder if you'd like to develop your project locally.
+
+**test.ipynb**: displays the first few rows of each table to let you check your database.
+**create_tables.py**: drops and creates your tables. You run this file to reset your tables before each time you run your ETL scripts.
+**etl.ipynb**: reads and processes a single file from song_data and log_data and loads the data into your tables. This notebook contains detailed instructions on the ETL process for each of the tables.
+**etl.py**: reads and processes files from song_data and log_data and loads them into your tables. You can fill this out based on your work in the ETL notebook.
+**sql_queries.py**: contains all your sql queries, and is imported into the last three files above.
 
 ## Project Steps
 **NOTE**: You will not be able to run test.ipynb, etl.ipynb, or etl.py until you have run create_tables.py at least once to create the sparkifydb database, which these other files connect to.
 
-- Create Tables: `python create_tables.py`
-- Build ETL Pipeline: `python etl.py`
-- Run Sanity Tests: open and run test.ipynb using jupyter notebook
+- Create Tables:execute in terminal 'python create_tables.py'
+- Build ETL Pipeline:execute in terminal 'python etl.py'
+- Run Sanity Tests: execute in jupyter notebook 'test.ipynb' 
+
+## Test screenshots from my Lab (database on Azure through udacity and code on my local machine)
+
+- Result 1.  
+![Res2](screenshoots/Res2.PNG "Res2")
+
+- Result 2.  
+![Res3](screenshoots/Res3.PNG "Res3")
+
+- Result 3.  
+![Res4](screenshoots/Res4.PNG "Res4")
+
+- Result 4.  
+![Res5](screenshoots/Res5.PNG "Res5")
+
