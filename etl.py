@@ -87,7 +87,7 @@ def process_data(cur, conn, filepath, func):
 def main():
    
     #connectionstring"host=127.0.0.1 dbname=sparkifydb user=student password=student"
-    connectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=sparkifydb user=abdsaf password=fasdba123@ sslmode=require"
+    connectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=sparkifydb user=abdsaf password=fasdba123! sslmode=require"
 
     conn = psycopg2.connect(connectionstring)
     cur = conn.cursor()

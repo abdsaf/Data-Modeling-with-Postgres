@@ -8,8 +8,8 @@ def create_database():
     - Returns the connection and cursor to sparkifydb
     """
     #"host=127.0.0.1 dbname=studentdb user=student password=student"
-    Initconnectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=postgres user=abdsaf password=fasdba123@ sslmode=require"
-    connectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=sparkifydb user=abdsaf password=fasdba123@ sslmode=require"
+    Initconnectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=postgres user=abdsaf password=fasdba123! sslmode=require"
+    connectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=sparkifydb user=abdsaf password=fasdba123! sslmode=require"
     # connect to default database
     conn = psycopg2.connect(Initconnectionstring)
     conn.set_session(autocommit=True)
