@@ -6,6 +6,13 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """_summary_
+    this method read song file and add song and artist data to postgres database using cusror
+
+    Args:
+        cur (cursor): postgres cursor using for insert song and artist data 
+        filepath (string): destination of json song file to process
+    """
     # open song file
     df = pd.read_json(filepath,lines=True)
    
@@ -20,6 +27,14 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """_summary_
+    this method read log file and add time,users data to dimensions tables ,
+    also add songplay data to Fact table using cusror
+
+    Args:
+        cur (cursor): postgres cursor using for insert time,users dimensions tables and songplays fact table
+        filepath (string): destination of json log file to process
+    """
     # open log file
     df = pd.read_json(filepath,lines=True)
 
@@ -66,6 +81,16 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """_summary_
+    This is general method using to process file by file for song_file and log_file and apply method accordingly process_song_file for song_file and process_log_file for log_file 
+, extracting the intrested data and save to database using cursor and connection
+
+    Args:
+        cur (cursor): postgres cursor
+        conn (connectionstring): connectionstring for postgrers database
+        filepath (string): destination of json file to process
+        func (method): method to apply (process_song_file or process_log_file)
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -85,7 +110,9 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
-   
+    """_summary_
+    main entry point for varaible initialization , open connection , get cursor and calling process_data method for song and log folders
+    """
     #connectionstring"host=127.0.0.1 dbname=sparkifydb user=student password=student"
     connectionstring="host=song-abdsaf.postgres.database.azure.com port=5432 dbname=sparkifydb user=abdsaf password=fasdba123! sslmode=require"
 
