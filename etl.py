@@ -7,7 +7,8 @@ from sql_queries import *
 
 def process_song_file(cur, filepath):
     """_summary_
-    this method read song file and add song and artist data to postgres database using cusror
+    this method read song file and add song and artist data to
+    postgres database using cusror
 
     Args:
         cur (cursor): postgres cursor using for insert song and artist data 
