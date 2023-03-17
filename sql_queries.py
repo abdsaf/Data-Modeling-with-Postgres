@@ -112,7 +112,20 @@ DO NOTHING;
 
 # FIND SONGS
 
-song_select = (""" select * from song where song_id=%s and artist_id=%s and duration=%s
+song_select = (""" 
+select 
+    song.song_id,
+    songartist.artist_id
+    
+from 
+song join songartist 
+    on song.artist_id=songartist.artist_id  
+where 
+    song.title=%s 
+    and 
+    songartist.name=%s 
+    and 
+    song.duration=%s
 """)
 
 # QUERY LISTS
